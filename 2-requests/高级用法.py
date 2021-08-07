@@ -1,4 +1,5 @@
 import requests
+from requests import cookies
 
 # 文件上传
 files = {'file': open('favicon.ico', 'rb')}
