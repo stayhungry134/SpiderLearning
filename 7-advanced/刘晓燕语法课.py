@@ -16,8 +16,8 @@ response_80 = requests.get(url=url_80, headers=headers)
 data_280 = response_280.content
 data_80 = response_80.content
 
-with open('file/280-.mp4', 'wb') as f:
+with open('../../file/280-.mp4', 'wb') as f:
     f.write(data_280)
 
-with open('file/80-.mp4', 'wb') as f:
+with open('../../file/80-.mp4', 'wb') as f:
     f.write(data_80)
