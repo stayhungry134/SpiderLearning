@@ -43,7 +43,7 @@ def get_song(song_id, song_name):
     # http://f2.htqyy.com/play8/33/mp3/3
     song_url = 'http://f2.htqyy.com/play8/{}/mp3/3'.format(song_id)
     song_data = requests.get(url=song_url, headers=headers, timeout=5).content
-    song_path = 'D:/audio/htqyy_hot/' + song_name + '.mp3'
+    song_path = 'E:/audio/htqyy_hot/demo/' + song_name + '.mp3'
     with open(song_path, 'wb') as f:
         f.write(song_data)
         print(song_name, "\t下载成功！！！")
@@ -53,7 +53,7 @@ error_song = []
 
 
 def main():
-    for i in range(11, 20):
+    for i in range(24):
         # 数据
         params = {
             'pageIndex': '{}'.format(i),
@@ -67,7 +67,6 @@ def main():
                     get_song(song_id, song_name)
                 except:
                     error_song.append([song_id, song_name])
-                    print(song_id, song_name)
         except:
             print(i)
 

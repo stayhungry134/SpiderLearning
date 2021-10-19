@@ -27,7 +27,7 @@ headers = [
 ]
 
 # 指定保存目录
-file_path = 'D:/images/enterdesk/'
+file_path = 'E:/images/enterdesk/'
 
 
 # 解析主页数据
@@ -60,7 +60,7 @@ def down_img(img_url, img_name):
 
 
 def main():
-    for i in range(1, 100):
+    for i in range(100, 1000):
         url = 'https://mm.enterdesk.com/dalumeinv/{}.html'.format(i)
         try:
             detail_url = get_index(url)

@@ -23,7 +23,7 @@ headers = [
 ]
 
 # 指定保存目录
-file_path = 'D:/images/netbian/'
+file_path = 'E:/images/netbian/'
 
 
 # 获取图片详情页链接和下一页链接
@@ -73,7 +73,7 @@ def main():
         pass
 
 
-for i in range(1, 173):
+for i in range(21, 146):
     next_url = main()
     url = 'http://pic.netbian.com' + next_url
     print("第{}页保存成功！！！".format(i + 1))
