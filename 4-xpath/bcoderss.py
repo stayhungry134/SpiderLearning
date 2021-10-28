@@ -27,7 +27,7 @@ headers = [
 ]
 
 # 指定保存目录
-file_path = 'D:/images/mobile2/'
+file_path = 'E:/images/phone/'
 
 
 # 解析主页
@@ -60,7 +60,7 @@ def down_img(img_url, img_name):
 
 def main():
     for i in range(1, 88):
-        url = 'http://m.bcoderss.com/tag/%E7%BE%8E%E5%A5%B3/page/{}/'.format(i)
+        url = 'https://m.bcoderss.com/page/{}/'.format(i)
         try:
             detail = get_index(url)
             for detail_url in detail:
