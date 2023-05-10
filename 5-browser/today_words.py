@@ -3,13 +3,45 @@ name: today_words.py
 create_time: 2023-01-15
 author: Ethan
 
-Description: 
+Description: 用于获取今天的单词
 """
 import time
 import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+
+
+def save_django_words(word_list, mean_list):
+    import datetime
+    import MySQLdb
+
+    my_db = MySQLdb.connect(
+        host="stayhungry134.com",
+        port=3306,
+        user="root",
+        password="(Ethan/997813581....",
+        database='django_words',
+    )
+    cursor = my_db.cursor()
+
+    for word, mean in zip(word_list, mean_list):
+        word = word.text
+        meaning = mean.text
+        today = datetime.date.today()
+        review_times = [False] * 9
+        # 检查记录是否存在
+        cursor.execute(f"SELECT * FROM ebbinghaus_learnwords WHERE word='{word}'")
+        rows = cursor.fetchall()
+        if rows:
+            continue
+        sql = f"INSERT INTO `ebbinghaus_learnwords` (`word`, `meaning`, `init_date`, `next_date`,  `review_times`) " \
+              f"VALUES " \
+              f"('{word}', '{meaning}', '{today}', '{today}', '{review_times}');"
+        cursor.execute(sql)
+    my_db.commit()
+
+
 csv_path = '/opt/study/csvwords'
 text_path = '/opt/study/textwords'
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
@@ -62,6 +94,7 @@ for i in range(10):
             word = word.text
             mean = mean.text
             csvfile.write(f'{word}, {mean}\n')
+        save_django_words(word_list, mean_list)
     with open(f'{text_path}/{file_name}.txt', 'a+', newline='') as textfile:
         for word in word_list:
             word = word.text
