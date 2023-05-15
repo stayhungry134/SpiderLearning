@@ -9,6 +9,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+
 CHROMEDRIVER_PATH = '/usr/local/bin/chromedriver'
 
 WINDOW_SIZE = "1920, 1080"
