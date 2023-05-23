@@ -40,7 +40,7 @@ def save_django_words(word, mean, date):
 # 读取单词csv文件
 def read_csv_words():
     today = datetime.date.today()
-    with open('../0_files/words/CET6.csv', 'r', encoding='utf-8') as file:
+    with open('../../0_files/words/CET6.csv', 'r', encoding='utf-8') as file:
     # with open('../0_files/words/test.csv', 'r', encoding='utf-8') as file:
         reader = csv.reader(file)
         num = 0

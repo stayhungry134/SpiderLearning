@@ -4,7 +4,7 @@ from lxml import etree
 from random import choice
 
 # 指定url
-# url = 'https://sj.enterdesk.com/woman/1.html'
+url = 'https://bz.zzzmh.cn/index'
 
 # 进行 UA 伪装
 headers = [
@@ -28,4 +28,7 @@ headers = [
 
 # 指定保存目录
 file_path = 'E:/images/jijian/'
+
+response = requests.get(url, headers=choice(headers))
+print(response.content.decode())
 

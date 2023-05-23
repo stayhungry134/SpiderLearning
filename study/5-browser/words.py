@@ -31,7 +31,7 @@ def write_words(word, meaning, init_date, next_date, review_times=None):
     my_db.commit()
 
 
-words_path = os.listdir('../0_files/words')
+words_path = os.listdir('../../0_files/words')
 words_path = [item for item in words_path if item.startswith('2023')]
 
 for path in words_path:

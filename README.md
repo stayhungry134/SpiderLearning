@@ -337,7 +337,7 @@ BD_HOME=0
 首先，我们必须声明一个CookieJar对象。接下来，就需要利用HTTPCookisProcessor来构建一个Handler，最后利用build_opener方法构建出Opener，执行open函数即可
 
 ```python
-filename = 'cookies.txt'  
+filename = 'config.py'  
 cookie = http.cookiejar.MozillaCookieJar(filename)  
 handler = urllib.request.HTTPCookieProcessor(cookie)  
 opener = urllib.request.build_opener(handler)  
@@ -363,7 +363,7 @@ cookie = http.cookiejar.LWPCookieJar(filename)
 
 ```python
 cookie = http.cookiejar.LWPCookieJar()  
-cookie.load('cookies.txt', ignore_discard=True, ignore_expires=True)  
+cookie.load('config.py', ignore_discard=True, ignore_expires=True)  
 handler = urllib.request.HTTPCookieProcessor(cookie)  
 opener = urllib.request.build_opener(handler)  
 response = opener.open('http://www.baidu.com')  
